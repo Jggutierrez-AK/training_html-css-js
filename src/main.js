@@ -7,7 +7,7 @@ const pkmn_effectiveness = {
 
 const calc_effectiveness = (pkmn_atk_type, pkmn_def_type) => {
     let effectiveness;
-    if (pkmn_atk_type === pkmn_def_type) effectiveness = 1;
+    if (pkmn_atk_type === pkmn_def_type) effectiveness = 0.5;
     else effectiveness = pkmn_effectiveness[pkmn_atk_type][pkmn_def_type];
     return effectiveness;
 }
@@ -22,28 +22,28 @@ const pkmn_dmg_calc = (pkmn_atk, pkmn_def) => {
         `...\nThe total damage was: ${damage}`)
 };
 
-const pkmn_atk = {
+const pkmn_fire = {
     "name": 'Infernape',
     "tipo": 'fire',
     "attack": 90,
     "defense": 80
 };
 
-const pkmn_def = {
+const pkmn_grass = {
     "name": 'Torterra',
     "tipo": 'grass',
     "attack": 90,
     "defense": 80
 };  
 
-const pkmn_def = {
+const pkmn_water = {
     "name": 'Empoleon',
     "tipo": 'water',
     "attack": 90,
     "defense": 80
 };  
 
-const pkmn_def = {
+const pkmn_electric = {
     "name": 'Luxray',
     "tipo": 'electric',
     "attack": 90,
