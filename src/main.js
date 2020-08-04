@@ -50,4 +50,4 @@ const pkmn_electric = {
     "defense": 80
 };  
 
-pkmn_dmg_calc(pkmn_atk, pkmn_def);
+pkmn_dmg_calc(pkmn_fire, pkmn_grass);
