@@ -22,7 +22,9 @@
     "sass": "^1.26.10"
   },
   "dependencies": {
+    "cross-fetch": "^3.0.5",
     "handlebars": "^4.7.6",
+    "node-fetch": "^2.6.0",
     "xmlhttprequest": "^1.8.0"
   }
 }

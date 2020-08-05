@@ -1,19 +1,29 @@
 'use strict';
 
 const Mustache = require('mustache');
-const fs = require('fs') 
+const fetch = require('cross-fetch');
+const fs = require('fs');
 
-const view = JSON.parse(fs.readFileSync('src/data/companies.json', "utf8"));
-console.log(view);
+async function getCompaniesData (url) {
+  const response = await fetch(url);
+  return response.json();
+}
 
-const htmlTemplate = fs.readFileSync('src/template.mustache', "utf-8");
-console.log(htmlTemplate);
+getCompaniesData('https://my-json-server.typicode.com/Jggutierrez-AK/json_fake_server/db')
+  .then(view => {
+    const htmlTemplate = getHtmlTemplate();
+    const output = renderHtmlDoc(htmlTemplate, view);
+    generateFile(output);
+  })
+  .catch(err => console.log(err));
 
-const output = Mustache.render(htmlTemplate, view);
-console.log(output);
+const getHtmlTemplate = () => fs.readFileSync('src/template.mustache', "utf-8");
 
-fs.writeFile('src/index.html', output, (err) => {
-  if (err) throw err;
-  console.log('The file has been saved!');
-});
+const renderHtmlDoc = (htmlTemplate, view) => Mustache.render(htmlTemplate, view);
+
+const generateFile = (output) => {
+  fs.writeFile('src/index.html', output, (err) => {
+    if (err) throw err;
+    console.log('The file has been saved!');
+})};
 
