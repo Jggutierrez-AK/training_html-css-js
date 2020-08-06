@@ -7,15 +7,17 @@ const pkmn_effectiveness = {
 
 const calc_effectiveness = (pkmn_atk_type, pkmn_def_type) => {
     let effectiveness;
+    
     if (pkmn_atk_type === pkmn_def_type) effectiveness = 0.5;
     else effectiveness = pkmn_effectiveness[pkmn_atk_type][pkmn_def_type];
     return effectiveness;
 }
 
 const pkmn_dmg_calc = (pkmn_atk, pkmn_def) => {
-    let effectiveness = calc_effectiveness(pkmn_atk.tipo, pkmn_def.tipo);
+    let effectiveness, damage;
 
-    const damage = Math.round(50 * 
+    effectiveness = calc_effectiveness(pkmn_atk.tipo, pkmn_def.tipo);
+    damage = Math.round(50 * 
         (pkmn_atk.attack / pkmn_def.defense) * effectiveness);
     console.log(`${pkmn_atk.name.toUpperCase()} attacked ` +
         `${pkmn_def.name.toUpperCase()}` +
