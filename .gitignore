@@ -1,0 +1,14 @@
+.DS_Store
+
+dist
+
+.vscode
+node_modules/
+
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+logs
+*.log
